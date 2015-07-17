@@ -1,0 +1,83 @@
+#kivy 1.9.0
+
+<NumberTextInput@TextInput>:
+    size_hint: None, None
+    size: 100, 100
+    font_size: 75
+    multiline: False
+    background_color: 0, 1, 1, 1
+    disabled_background_color: 1, 1, 0, 0
+    border: 0, 0, 0, 0
+    canvas.after:
+        Color:
+            rgb: 0.654, 0.858, 0.847
+        Line:
+            points: self.right - self.width, self.top, self.right, self.top, self.right, self.top - self.height, self.right - self.width, self.top - self.height, self.right - self.width, self.top
+            width: 1.8
+
+
+<NumberOutput@Widget>:
+    Label:
+        size_hint: None, None
+        size: 100, 100
+        pos: self.parent.pos
+        font_size: 25
+        background_color: 0, 1, 1, 1
+        disabled_background_color: 1, 1, 0, 0
+        border: 0, 0, 0, 0
+        canvas.after:
+            Color:
+                rgb: 0.952, 0.525, 0.188
+            Line:
+                points: self.right - self.width, self.top, self.right, self.top, self.right, self.top - self.height, self.right - self.width, self.top - self.height, self.right - self.width, self.top
+                width: 1.8
+
+<GuiController>:
+    canvas.before:
+        Color:
+            rgb: 0.896, 0.912, 0.816
+        Rectangle:
+            pos: self.pos
+            size: self.size
+    FloatLayout:
+        BoxLayout:
+            orientation: 'vertical'
+            canvas.before:
+                Color:
+                    rgb: 0.41, 0.82, 0.9
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            pos: 450, 200
+            size: 120, 260
+            padding: 10
+            spacing: 30
+            NumberTextInput:
+                id: "input_down"
+                focus: True
+            NumberTextInput:
+                id: "input_up"
+                focus: False
+        BoxLayout:
+            orientation: 'vertical'
+            canvas.before:
+                Color:
+                    rgb: 0.98, 0.411, 0
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            pos: 200, 200
+            size: 120, 260
+            padding: 10
+            spacing: 30
+            NumberOutput:
+                id: "output_down"
+            NumberOutput:
+                id: "output_up"
+
+
+
+
+
+
+

@@ -1,0 +1,4 @@
+NumberInput:
+    pos_hint: {'x': .3, 'y': .5}
+NumberInput:
+    pos: 222, 222
